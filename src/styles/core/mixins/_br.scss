@@ -1,0 +1,17 @@
+@mixin br {
+  br {
+    content: ' ';
+
+    &:after {
+      content: ' ';
+    }
+
+    @include breakpoint(lg) {
+      display: block;
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    @include breakpoint(md) {
+        max-width: 50%;
+        margin: 0 auto;
+    }
+
+    &__wrapper {
+        @include rem(padding, 45px 30px);
+    }
+
+    &__header {
+        @include rem(margin-bottom, 50px);
+    }
+
+    &__title {
+        display: block;
+
+        @include breakpoint(md) {
+            @include rem(font-size, 36px);
+        }
+    }
+
+    &__form {
+        @include rem(margin-bottom, 30px);
+    }
+
+    &__pagination {
+        @include rem(margin-top, 30px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

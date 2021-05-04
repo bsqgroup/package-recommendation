@@ -1,0 +1,23 @@
+@mixin container() {
+  flex-grow: 1;
+  margin: 0 auto;
+  padding-left: $grid-gutter-sm;
+  padding-right: $grid-gutter-sm;
+  max-width: $page-width + $grid-gutter-sm;
+
+  @media (min-width: $breakpoint-sm) {
+    max-width: $page-width + $grid-gutter-sm * 2;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    padding-left: $grid-gutter-md;
+    padding-right: $grid-gutter-md;
+    max-width: $page-width + $grid-gutter-md * 2;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    padding-left: $grid-gutter-lg;
+    padding-right: $grid-gutter-lg;
+    max-width: $page-width + $grid-gutter-lg * 2;
+  }
+}

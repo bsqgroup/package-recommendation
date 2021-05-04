@@ -1,0 +1,10 @@
+@mixin myriad-pro($weight: 400) {
+  font-family: myriad-pro-semi-condensed, sans-serif;
+  font-weight: $weight;
+  font-style: normal;
+}
+@mixin myriad-pro-regular($weight: 400) {
+  font-family: myriad-pro, sans-serif;
+  font-weight: $weight;
+  font-style: normal;
+}

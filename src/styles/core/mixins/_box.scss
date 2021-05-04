@@ -1,0 +1,10 @@
+@mixin box($shadow: false, $backgroundColour: $color-white, $padding: 0) {
+  @include rem(padding, $padding);
+  border: 1px solid $color-gray-11;
+  background-color: $backgroundColour;
+
+  @if ($shadow == true) {
+    transition: box-shadow 0.2s ease-in-out;
+    box-shadow: $box-shadow-heavy;
+  }
+}

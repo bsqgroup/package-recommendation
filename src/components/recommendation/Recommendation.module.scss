@@ -1,0 +1,119 @@
+.recommendation {
+    display: flex;
+
+    &__columns {
+        display: flex;
+        flex-direction: column;
+
+        &___one {
+            display: flex;
+
+            @include breakpoint(md) {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-gap: 30px;
+            }
+        }
+
+        &___two {
+            display: flex;
+
+            @include breakpoint(md) {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 30px;
+            }
+        }
+    }
+
+    &__title {
+        @include rem(margin-bottom, 30px);
+    }
+
+    &__header {
+        @include rem(margin-bottom, 15px);
+        display: flex;
+        align-items: row;
+        flex-direction: center;
+        justify-content: space-between;
+    }
+
+    &__package {
+        @include rem(font-size, 21px);
+    }
+
+    &__price {
+        @include rem(font-size, 21px);
+        font-weight: 600;
+    }
+
+    &__content {
+        @include rem(margin-bottom, 30px);
+
+        ul,
+        ol {
+            li {
+                svg {
+                    font-size: 1.25rem!important;
+                    color: $color-green;
+                }
+            }
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-weight: 300;
+        font-size: .875rem;
+        line-height: 1.125;
+        text-align: center;
+        vertical-align: center;
+        text-decoration: none;
+        background-color: transparent;
+        border: 1px solid transparent;
+        color: $color-white;
+        padding: .75rem 1.25rem;
+        -webkit-appearance: none;
+        border-radius: .375rem;
+        transition: all 250ms cubic-bezier(.27, .01, .38, 1.06);
+
+        &___buy {
+            @include rem(margin-right, 10px);
+            background-color: $color-green;
+            border-color: $color-green;
+            color: $color-white;
+
+            &:hover,
+            &:active {
+                background-color: lighten($color-green, 5%);
+                border-color: lighten($color-green, 5%);
+                color: $color-white;
+                text-decoration: none;
+            }
+        }
+
+        &___details {
+            @include rem(margin-right, 10px);
+            background-color: $color-white;
+            border-color: $color-white;
+            color: $color-font-headline;
+
+            &:hover,
+            &:active {
+                background-color: #b2d9e6;
+                border-color: #b2d9e6;
+                color: $color-white;
+                text-decoration: none;
+            }
+        }
+    }
+}

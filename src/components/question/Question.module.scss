@@ -1,0 +1,79 @@
+.question {
+    display: block;
+
+    &__header {
+        @include rem(margin-bottom, 15px);
+    }
+
+    &__question {
+        @include rem(font-size, 28px);
+        margin-bottom: 0;
+    }
+
+    &__options {
+        @include rem(margin-bottom, 30px);
+        display: flex;
+        flex-direction: column;
+
+        @include breakpoint(md) {
+            display: grid;
+            grid-gap: 20px;
+        }
+
+        &___two {
+            @include breakpoint(md) {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        &___three {
+            @include breakpoint(md) {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+    }
+
+    &__option {
+        @include border-radius(7px);
+        @include rem(padding, 15px);
+        @include rem(margin-bottom, 15px);
+        position: relative;
+        background-color: $color-white;
+        transition: box-shadow 0.5s;
+
+        @include breakpoint(md) {
+            margin-bottom: 0;
+        }
+
+        &___selected {
+            box-shadow: 0px 0px 0px 2px $color-green;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        h3 {
+            @include rem(font-size, 16px);
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+    }
+
+    &__icon {
+        @include rem(font-size, 24px);
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        color: transparent;
+        transition: color 0.5s;
+
+        &___active {
+            color: $color-green;
+        }
+    }
+
+    &__progress {
+        @include rem(margin-bottom, 30px);
+    }
+}

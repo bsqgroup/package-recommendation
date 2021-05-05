@@ -1,5 +1,5 @@
 export const getQuestions = async () =>  {
-   return await fetch(`http://directus.bsqgroup.co.uk/items/questions/?fields=*.*.*`)
+   return await fetch(`https://recommendation.directus.1stformations.co.uk/items/questions/?fields=*.*.*`)
    .then(data => data.json());
 }
 

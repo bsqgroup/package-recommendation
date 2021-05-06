@@ -6,7 +6,7 @@ export interface Props {
     answers: Answer[];
     destinations: any;
     columns: number;
-    progress: number;
+    prev?: boolean;
 }
 
 export interface Answer {

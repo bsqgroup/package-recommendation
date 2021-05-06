@@ -8,7 +8,7 @@ import s from './Question.module.scss';
 export default(props: Props): JSX.Element => {
     const [nextStep, setNextStep] = useState<any>();
     const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
-    const { id, question, answers, destinations, columns, progress } = props;
+    const { id, question, answers, destinations, columns, prev } = props;
     const answersStyle = columns === 2 ? s.question__options___two : s.question__options___three;
 
     const selectAnswer = (name: string, next_step: string) => {
@@ -42,9 +42,16 @@ export default(props: Props): JSX.Element => {
                 })}
             </div>
             <div className={s.question__progress}>
-                <Progress theme="success" value={progress} />
+                <Progress theme="success" value={id * 10} />
             </div>
             <div className={s.question__actions}>
+                <Button
+                    theme="secondary"
+                    onClick={destinations[Object.keys(destinations)[Object.keys(destinations).length - 1]]}
+                    disabled={!prev}
+                >
+                    Previous
+                </Button>
                 <Button theme="success" onClick={nextStep ? destinations[nextStep] : null} disabled={!nextStep}>Next</Button>
             </div>
         </div>

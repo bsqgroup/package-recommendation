@@ -76,4 +76,11 @@
     &__progress {
         @include rem(margin-bottom, 30px);
     }
+
+    &__actions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
 }

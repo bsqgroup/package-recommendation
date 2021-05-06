@@ -1,0 +1,13 @@
+.introduction {
+    display: block;
+
+    &__title {
+        @include rem(font-size, 45px);
+    }
+
+    &__subtitle {
+        @include rem(font-size, 19px);
+        @include rem(margin-bottom, 30px);
+        font-weight: 400;
+    }
+}

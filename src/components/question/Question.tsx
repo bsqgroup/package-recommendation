@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/pro-solid-svg-icons';
 import { Button, Progress } from 'shards-react';
 
-import Icon from 'components/icon/Icon';
 import { IAnswer } from 'interfaces';
 import { Props } from './Question.interface';
 
@@ -46,11 +47,13 @@ export default (props: Props): JSX.Element => {
                             onClick={() => selectAnswer(item)}
                         >
                             <h3 className={s.question__answer}>{answer}</h3>
-                            <Icon
-                                name='check-circle'
-                                type='solid'
-                                className={`${s.question__icon} ${selected ? s.question__icon___active : ''}`}
-                            />
+                            <div className={`${s.question__icon} ${selected ? s.question__icon___active : ''}`}>
+                                <FontAwesomeIcon
+                                    icon={faCheckCircle}
+                                    size='sm'
+                                    aria-label='check icon.'
+                                />
+                            </div>
                         </div>
                     );
                 })}

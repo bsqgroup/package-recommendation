@@ -1,7 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/pro-solid-svg-icons';
-import { Button } from 'shards-react';
 
 import Markdown from 'components/markdown/Markdown';
 import { Props } from './Recommendation.interface';

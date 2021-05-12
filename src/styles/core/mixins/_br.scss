@@ -1,9 +1,9 @@
 @mixin br {
   br {
-    content: ' ';
+    content: " ";
 
     &:after {
-      content: ' ';
+      content: " ";
     }
 
     @include breakpoint(lg) {

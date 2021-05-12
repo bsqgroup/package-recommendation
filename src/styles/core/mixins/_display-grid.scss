@@ -1,13 +1,12 @@
-@mixin display-grid($number, $gap:$grid-gutter, $type:'columns') {
+@mixin display-grid($number, $gap: $grid-gutter, $type: "columns") {
   display: grid;
   grid-auto-flow: dense;
   grid-gap: $gap;
   width: 100%;
 
-  @if ($type == 'columns') {
+  @if ($type == "columns") {
     grid-template-columns: repeat($number, 1fr);
-  }
-  @else if($type == 'rows') {
+  } @else if($type == "rows") {
     grid-template-rows: repeat($number, 1fr);
   }
 }

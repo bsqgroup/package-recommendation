@@ -2,12 +2,10 @@ import React from 'react';
 
 import s from './Spinner.module.scss';
 
-const Spinner = (): JSX.Element => (
+export const Spinner = (): JSX.Element => (
     <div className={s.spinner}>
-        <span className={s.spinner__segment}></span>
-        <span className={s.spinner__segment}></span>
-        <span className={s.spinner__segment}></span>
+        <span className={s.spinner__segment} />
+        <span className={s.spinner__segment} />
+        <span className={s.spinner__segment} />
     </div>
 );
-
-export default Spinner;

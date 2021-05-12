@@ -36,6 +36,7 @@
     &__option {
         @include border-radius(7px);
         @include rem(padding, 15px);
+        @include rem(padding-right, 45px);
         @include rem(margin-bottom, 15px);
         position: relative;
         background-color: $color-white;
@@ -63,7 +64,7 @@
     &__icon {
         @include rem(font-size, 24px);
         position: absolute;
-        bottom: 5px;
+        bottom: 7.5px;
         right: 5px;
         color: transparent;
         transition: color 0.5s;

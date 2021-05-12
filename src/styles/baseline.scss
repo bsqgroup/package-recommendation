@@ -1,6 +1,6 @@
-@import './config.scss';
-@import 'bootstrap/dist/css/bootstrap.min.css';
-@import 'shards-ui/dist/css/shards.min.css';
+@import "./config.scss";
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "shards-ui/dist/css/shards.min.css";
 
 @-ms-viewport {
   width: device-width;
@@ -142,7 +142,7 @@ textarea,
 select {
   @include rem(font-size, 16px);
   color: $color-font;
-  border-radius: 0!important;
+  border-radius: 0 !important;
 
   &::-webkit-input-placeholder {
     color: $color-placeholder;
@@ -163,9 +163,9 @@ select {
 }
 
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
+[type="button"],
+[type="reset"],
+[type="submit"] {
   -webkit-appearance: button;
 }
 

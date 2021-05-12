@@ -1,5 +1,5 @@
-@import '../variables';
-@import 'rems';
+@import "../variables";
+@import "rems";
 
 @mixin spacing($declarations, $increment: 1) {
   @each $declaration in $declarations {

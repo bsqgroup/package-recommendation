@@ -1,7 +1,7 @@
 import { DirectusMarkdown } from 'interfaces/directus.interface';
 
 export interface Props {
-    id: number;
+    id: string;
     name: string;
     recommended_package: Package;
     recommended_package_content: DirectusMarkdown;
@@ -10,9 +10,9 @@ export interface Props {
 }
 
 export interface Package {
-    id: number;
+    id: string;
     name: string;
-    price: number;
+    price: string;
     buy_link: string;
     details_link: string;
 }

@@ -1,17 +1,13 @@
-import { IAnswer } from 'types/answers.interface';
+import { IAnswer } from 'interfaces';
 
 export interface Props {
     id: number;
+    name: string;
     question: string;
-    answers: Answer[];
+    answers: IAnswer[];
     destinations: any;
     columns: number;
     prev?: boolean;
-}
-
-export interface Answer {
-    id: number;
-    name: string;
-    answer: string;
-    next_step: string;
+    activeCode: string;
+    setActiveCode: (answer: string) => void;
 }

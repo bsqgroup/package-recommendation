@@ -1,4 +1,4 @@
-import { DirectusMarkdown } from 'interfaces/directus.interface';
+import { DirectusMarkdown } from 'interfaces';
 
 export interface Props {
     id: string;

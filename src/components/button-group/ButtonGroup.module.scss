@@ -1,0 +1,156 @@
+.btnGrp {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(md) {
+    display: inline-flex;
+    flex-flow: row wrap;
+    flex-direction: row;
+  }
+
+  button,
+  a {
+    width: 100%;
+    margin-right: unset;
+    margin-left: unset;
+    margin-bottom: $button-gap;
+
+    @include breakpoint(md) {
+      width: unset;
+      margin-right: $button-gap;
+      margin-bottom: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &Block {
+    display: flex;
+    justify-content: center;
+
+    @include breakpoint(md) {
+      flex-direction: row;
+    }
+  }
+
+  &Reverse {
+    flex-direction: column-reverse;
+
+    @include breakpoint(md) {
+      flex-direction: row-reverse;
+    }
+
+    button,
+    a {
+      @include breakpoint(md) {
+        margin-right: unset;
+        margin-left: $button-gap;
+
+        &:last-child {
+          margin-left: 0;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: $button-gap;
+
+        @include breakpoint(md) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &Column {
+    flex-direction: column;
+    width: 100%;
+
+    button,
+    a {
+      width: 100%;
+      margin-right: unset;
+      margin-left: unset;
+      margin-bottom: $button-gap;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &.btnGrpReverse {
+      flex-direction: column-reverse;
+
+      button,
+      a {
+        width: 100%;
+        margin-right: unset;
+        margin-left: unset;
+        margin-bottom: $button-gap;
+
+        &:first-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &Toolbar {
+    display: inline-flex;
+    flex-flow: row wrap;
+
+    button,
+    a {
+      width: unset;
+      margin: unset;
+
+      &:not(:last-child):not(:first-child) {
+        @include border-radius(0);
+        border-left: 0;
+        border-right-style: none;
+      }
+
+      &:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right-style: none;
+      }
+
+      &:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left-style: none;
+      }
+    }
+
+    &.btnGrpReverse {
+      flex-direction: row-reverse;
+
+      button,
+      a {
+        &:not(:last-child):not(:first-child) {
+          @include border-radius(0);
+          border-left-style: none;
+          border-right-style: none;
+        }
+
+        &:not(:last-child) {
+          @include border-right-radius($border-radius);
+          @include border-left-radius(0);
+          border-right-style: solid;
+          border-left-style: none;
+        }
+
+        &:not(:first-child) {
+          @include border-left-radius($border-radius);
+          @include border-right-radius(0);
+          border-right-style: none;
+          border-left-style: solid;
+          margin-bottom: unset;
+        }
+      }
+    }
+  }
+}

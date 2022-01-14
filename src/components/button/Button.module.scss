@@ -1,0 +1,157 @@
+.btn {
+    @include myriad(400);
+    @include rem(font-size, 18px);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1.75rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: inherit;
+    cursor: pointer;
+    line-height: 1.5;
+    text-align: center;
+    vertical-align: center;
+    text-decoration: none;
+    background-color: transparent;
+    color: $color-font;
+    transition: all 0.1s ease-in-out;
+    -webkit-appearance: none;
+
+    &:hover {
+        background-color: $color-gray-03;
+        text-decoration: none;
+    }
+
+    &:focus,
+    &:active {
+        background-color: darken($color-gray-03, 5%);
+        outline: none;
+    }
+
+    &:disabled,
+    &--disabled {
+        border: 1px solid $color-blue;
+        cursor: not-allowed;
+        background: $color-blue;
+        color: $color-white;
+    }
+}
+
+.btnText {
+    border-color: transparent;
+    background-color: transparent;
+
+    &:hover {
+        text-decoration: underline;
+        background-color: unset;
+    }
+
+    &:focus,
+    &:active {
+        outline: none;
+    }
+}
+
+.btnPrimary {
+    border: 1px solid $color-blue;
+    background: $color-blue;
+    color: $color-white;
+
+    &:hover {
+        border: 1px solid lighten($color-blue, 5%);
+        background: lighten($color-blue, 5%);
+    }
+
+    &:focus,
+    &:active {
+        border: 1px solid darken($color-blue, 5%);
+        background: darken($color-blue, 5%);
+        color: $color-white;
+    }
+}
+
+.btnSecondary {
+    border: 1px solid $color-gray-26;
+    background: $color-white;
+    color: $color-font;
+
+    &:hover {
+        border: 1px solid $color-gray-23;
+        background: $color-white;
+    }
+
+    &:focus,
+    &:active {
+        border: 1px solid $color-gray-40;
+        color: $color-font;
+    }
+}
+
+.btnSuccess {
+    border: 1px solid $color-green;
+    background: $color-green;
+    color: $color-white;
+
+    &:hover {
+        border: 1px solid lighten($color-green, 5%);
+        background: lighten($color-green, 5%);
+    }
+
+    &:focus,
+    &:active {
+        border: 1px solid darken($color-green, 5%);
+        background: darken($color-green, 5%);
+        color: $color-white;
+    }
+}
+
+.btnWarning {
+    border: 1px solid $color-warning;
+    background: $color-warning;
+    color: $color-white;
+
+    &:hover {
+        border: 1px solid lighten($color-warning, 10%);
+        background: lighten($color-warning, 10%);
+    }
+
+    &:focus,
+    &:active {
+        border: 1px solid darken($color-warning, 10%);
+        background: darken($color-warning, 10%);
+        color: $color-white;
+    }
+}
+
+.btnDanger {
+    border: 1px solid $color-danger;
+    background: $color-danger;
+    color: $color-white;
+
+    &:hover {
+        border: 1px solid lighten($color-danger, 10%);
+        background: lighten($color-danger, 10%);
+    }
+
+    &:focus,
+    &:active {
+        border: 1px solid darken($color-danger, 10%);
+        background: darken($color-danger, 10%);
+        color: $color-white;
+    }
+}
+
+.btnSmall {
+    @include rem(font-size, 14px);
+    @include rem(padding, 4px 12px);
+}
+
+.btnLarge {
+    @include rem(padding, 12px 32px);
+    @include rem(font-size, 19px);
+}
+
+.btnBlock {
+    display: block;
+}

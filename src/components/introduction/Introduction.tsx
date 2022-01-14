@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from 'shards-react';
 
+import Button from 'components/button/Button';
 import { Props } from './Introduction.interface';
 
 import s from './Introduction.module.scss';
@@ -14,8 +14,8 @@ export default (props: Props): JSX.Element => (
         </h3>
         <Button
             className={s.introduction__button}
-            size='lg'
-            theme='success'
+            size="large"
+            role="success"
             onClick={props.destinations.Q1}
         >
             Get Started

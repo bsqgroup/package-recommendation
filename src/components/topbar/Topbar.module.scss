@@ -1,0 +1,27 @@
+.topbar {
+    @include rem(padding, 10px 15px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid $color-gray-04;
+
+    &__reset {
+        display: flex;
+        align-items: center;
+        color: $color-font-headline;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        svg {
+            @include rem(font-size, 14px);
+            @include rem(margin-right, 5px);
+        }
+    }
+}

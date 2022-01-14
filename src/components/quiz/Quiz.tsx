@@ -5,6 +5,7 @@ import Introduction from 'components/introduction/Introduction';
 import Question from 'components/question/Question';
 import Recommendation from 'components/recommendation/Recommendation';
 import { Spinner } from 'components/spinner/Spinner';
+import { Topbar } from 'components/topbar/Topbar';
 import { getQuestions } from 'services/questions.service';
 import { getRecommendations } from 'services/recommendations.service';
 import { getSteps } from 'services/steps.service';
@@ -45,6 +46,7 @@ export const Quiz = () => {
                     </Step>
                     {steps && steps.map((step: any) => (
                         <Step key={step.name} name={step.name}>
+                            <Topbar destinations={destinations} />
                             {step.type === 'Question' ? (
                                 <Question
                                     {...step.question}

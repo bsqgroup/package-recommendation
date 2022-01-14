@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/pro-solid-svg-icons';
-import { Button, Progress } from 'shards-react';
+import { faCheck } from '@fortawesome/pro-solid-svg-icons';
 
+import Button from 'components/button/Button';
 import { IAnswer } from 'interfaces';
 import { Props } from './Question.interface';
 
@@ -12,7 +12,9 @@ export default (props: Props): JSX.Element => {
     const [currentAnswer, setCurrentAnswer] = useState<string>('');
     const [nextStep, setNextStep] = useState<string>('');
     const { id, question, answers, destinations, columns, activeCode, setActiveCode } = props;
-    const answersStyle = columns === 2 ? s.question__options___two : s.question__options___three;
+    const prevStep = Object.keys(destinations)[Object.keys(destinations).length - 1] === 'intro'
+        ? destinations[Object.keys(destinations)[Object.keys(destinations).length - 2]]
+        : destinations[Object.keys(destinations)[Object.keys(destinations).length - 1]];
     const firstStep = id === 1;
     const lastStep = id === 9;
 
@@ -35,7 +37,7 @@ export default (props: Props): JSX.Element => {
             <div className={s.question__header}>
                 <h1 className={s.question__question}>{id}. {question}</h1>
             </div>
-            <div className={`${s.question__options} ${answersStyle}`}>
+            <div className={s.question__options}>
                 {answers && answers.map((item: IAnswer, i: number) => {
                     const { id, name, answer, next_question, recommendation, quit_quiz } = item;
                     const selected = name === currentAnswer;
@@ -49,7 +51,7 @@ export default (props: Props): JSX.Element => {
                             <h3 className={s.question__answer}>{answer}</h3>
                             <div className={`${s.question__icon} ${selected ? s.question__icon___active : ''}`}>
                                 <FontAwesomeIcon
-                                    icon={faCheckCircle}
+                                    icon={faCheck}
                                     size='sm'
                                     aria-label='check icon.'
                                 />
@@ -59,33 +61,38 @@ export default (props: Props): JSX.Element => {
                 })}
             </div>
             <div className={s.question__progress}>
-                <Progress theme='success' value={id * 10} />
             </div>
             <div className={s.question__actions}>
-                <Button
-                    theme='secondary'
-                    onClick={destinations[Object.keys(destinations)[Object.keys(destinations).length - 1]]}
-                    disabled={firstStep}
-                >
-                    Previous
-                </Button>
-                {!lastStep ? (
-                    <Button
-                        theme='success'
-                        onClick={destinations[nextStep]}
-                        disabled={!currentAnswer}
-                    >
-                        Next
-                    </Button>
-                ) : (
-                    <Button
-                        theme='success'
-                        onClick={destinations[activeCode]}
-                        disabled={!currentAnswer}
-                    >
-                        Next
-                    </Button>
-                )}
+                <div>
+                    {!firstStep && (
+                        <Button
+                            role="secondary"
+                            onClick={prevStep}
+                            disabled={firstStep}
+                        >
+                            Previous
+                        </Button>
+                    )}
+                </div>
+                <div>
+                    {!lastStep ? (
+                        <Button
+                            role="success"
+                            onClick={destinations[nextStep]}
+                            disabled={!currentAnswer}
+                        >
+                            Next
+                        </Button>
+                    ) : (
+                        <Button
+                            role="success"
+                            onClick={destinations[activeCode]}
+                            disabled={!currentAnswer}
+                        >
+                            Next
+                        </Button>
+                    )}
+                </div>
             </div>
         </div>
     );

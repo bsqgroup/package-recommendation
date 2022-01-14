@@ -1,10 +1,12 @@
-@mixin myriad-pro($weight: 400) {
-  font-family: myriad-pro-semi-condensed, sans-serif;
-  font-weight: $weight;
-  font-style: normal;
-}
-@mixin myriad-pro-regular($weight: 400) {
-  font-family: myriad-pro, sans-serif;
-  font-weight: $weight;
-  font-style: normal;
+@mixin myriad($weight: 400) {
+    @if ($weight == 300) {
+        font-family: "Myriad-Light-Semi-Condensed";
+        font-weight: 300;
+    } @else if($weight == 700) {
+        font-family: "Myriad-Bold-Semi-Condensed";
+        font-weight: 700;
+    } @else {
+        font-family: "Myriad-Semi-Condensed";
+        font-weight: 400;
+    }
 }

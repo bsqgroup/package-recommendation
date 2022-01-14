@@ -25,6 +25,7 @@
         "/interfaces/*": ["./interfaces/*"],
         "/services/*": ["./services/*"],
         "/styles/*": ["./styles/*"],
-        "/types/*": ["./types/*"]
+        "/types/*": ["./types/*"],
+        "/utils/*": ["./utils/*"]
     }
 }

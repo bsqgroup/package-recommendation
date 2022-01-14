@@ -1,76 +1,100 @@
 @import "./config.scss";
-@import "bootstrap/dist/css/bootstrap.min.css";
-@import "shards-ui/dist/css/shards.min.css";
+
+@font-face {
+    font-family: "Myriad-Light-Semi-Condensed";
+    src: url(https://cdnnetwork.s3.amazonaws.com/files/fonts/myriad/d75f022a-7bf9-424e-936c-365a36ee6af9.eot#iefix);
+    src: url(https://cdnnetwork.s3.amazonaws.com/files/fonts/myriad/d75f022a-7bf9-424e-936c-365a36ee6af9.eot#iefix) format("eot"),url(https://cdnnetwork.s3.amazonaws.com/files/fonts/myriad/cbc06ef4-9065-4983-aec5-9b4ff91d6ffb.woff2) format("woff2"),url(https://cdnnetwork.s3.amazonaws.com/files/fonts/myriad/4b814970-6dab-4946-95a5-b95317efe1c8.woff) format("woff"),url(https://cdnnetwork.s3.amazonaws.com/files/fonts/myriad/0dc717dd-8211-4eb2-a43d-cdcc3c917295.ttf) format("truetype"),url(https://cdnnetwork.s3.amazonaws.com/files/fonts/myriad/0d275036-c29d-42d9-983a-ef1eaf3703ad.svg#0d275036-c29d-42d9-983a-ef1eaf3703ad) format("svg");
+    font-weight: 300;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Myriad-Semi-Condensed";
+    src: url(https://cdnnetwork.s3.amazonaws.com/files/fonts/myriad/2a722638-53d2-4c7d-ab42-1a1c579c8256.eot#iefix);
+    src: url(https://cdnnetwork.s3.amazonaws.com/files/fonts/myriad/2a722638-53d2-4c7d-ab42-1a1c579c8256.eot#iefix) format("eot"),url(https://cdnnetwork.s3.amazonaws.com/files/fonts/myriad/e0e6006a-e073-4eb0-8494-b635498f4fce.woff2) format("woff2"),url(https://cdnnetwork.s3.amazonaws.com/files/fonts/myriad/f74acc35-eed1-4761-9fc5-e97cca7a6be3.woff) format("woff"),url(https://cdnnetwork.s3.amazonaws.com/files/fonts/myriad/ab3ede5e-8671-4474-9661-670335486816.ttf) format("truetype"),url(https://cdnnetwork.s3.amazonaws.com/files/fonts/myriad/0ac7ac25-08ca-4603-9f42-cb03eb8362f5.svg#0ac7ac25-08ca-4603-9f42-cb03eb8362f5) format("svg");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Myriad-Bold-Semi-Condensed";
+    src: url(https://cdnnetwork.s3.amazonaws.com/files/fonts/myriad/ac6f9713-7381-423e-bc2f-977ad9fd67a9.eot#iefix);
+    src: url(https://cdnnetwork.s3.amazonaws.com/files/fonts/myriad/ac6f9713-7381-423e-bc2f-977ad9fd67a9.eot#iefix) format("eot"),url(https://cdnnetwork.s3.amazonaws.com/files/fonts/myriad/836d2999-31ef-40e8-86dc-3b88e3f60e33.woff2) format("woff2"),url(https://cdnnetwork.s3.amazonaws.com/files/fonts/myriad/ec88a881-dc74-44d5-b60f-80794e122fc3.woff) format("woff"),url(https://cdnnetwork.s3.amazonaws.com/files/fonts/myriad/5c1586dc-a89c-4e63-a6bc-42ec6fb1f41f.ttf) format("truetype"),url(https://cdnnetwork.s3.amazonaws.com/files/fonts/myriad/c060fe91-a420-4db4-983e-b4364b9b6434.svg#c060fe91-a420-4db4-983e-b4364b9b6434) format("svg");
+    font-weight: 700;
+    font-style: normal
+}
+
 
 @-ms-viewport {
-  width: device-width;
+    width: device-width;
 }
 
 @-o-viewport {
-  width: device-width;
+    width: device-width;
 }
 
 @viewport {
-  width: device-width;
+    width: device-width;
 }
 
 :root {
-  @if global-variable-exists(scale) {
-    --scale-element: 1;
-    --scale-font: 1;
+    @if global-variable-exists(scale) {
+        --scale-element: 1;
+        --scale-font: 1;
 
-    @each $size in $scale {
-      @media (max-height: nth($size, 1)) {
-        --scale-element: #{nth($size, 2)};
-        --scale-font: #{nth($size, 2)};
-      }
+        @each $size in $scale {
+            @media (max-height: nth($size, 1)) {
+                --scale-element: #{nth($size, 2)};
+                --scale-font: #{nth($size, 2)};
+            }
+        }
     }
-  }
 }
 
 html,
 body,
 #root {
-  height: 100%;
-  margin: 0;
+    height: 100%;
+    margin: 0;
 }
 
 html,
 body {
-  min-height: 100vh;
-  background-color: #ddf6ff;
+    min-height: 100vh;
+    background-color: $color-white;
 }
 
 html {
-  -webkit-overflow-scrolling: touch;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 body {
-  @include rem(font-size, 16px);
-  font-weight: 400;
-  position: relative;
-  margin: 0;
-  line-height: $font-line-height-base;
-  text-size-adjust: 100%;
-  color: $color-font;
+    @include myriad();
+    @include rem(font-size, 18px);
+    font-weight: 400;
+    position: relative;
+    margin: 0;
+    line-height: $font-line-height-base;
+    text-size-adjust: 100%;
+    color: $color-font;
 
-  @supports (-webkit-touch-callout: none) {
-    overflow-x: hidden;
-  }
+    @supports (-webkit-touch-callout: none) {
+        overflow-x: hidden;
+    }
 }
 
 h1,
@@ -79,100 +103,94 @@ h3,
 h4,
 h5,
 h6 {
-  color: $color-font-headline;
-  margin-bottom: 0.5rem;
-  margin-top: 0;
+    color: $color-font-headline;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
 }
 
 h1 {
-  @include rem(font-size, 36px);
-  font-weight: 600;
-  line-height: 1.15;
+    @include rem(font-size, 36px);
+    font-weight: 600;
+    line-height: 1.15;
 }
 
 h2 {
-  @include rem(font-size, 34px);
-  font-weight: 600;
-  line-height: 1.235;
+    @include rem(font-size, 34px);
+    font-weight: 600;
+    line-height: 1.235;
 }
 
 h3 {
-  @include rem(font-size, 28px);
-  font-weight: 600;
-  line-height: 1.235;
+    @include rem(font-size, 28px);
+    font-weight: 600;
+    line-height: 1.235;
 }
 
 h4 {
-  @include rem(font-size, 23px);
-  line-height: 1.35;
+    @include rem(font-size, 23px);
+    line-height: 1.35;
 }
 
 h5 {
-  @include rem(font-size, 18px);
-  line-height: 1.5;
+    @include rem(font-size, 18px);
+    line-height: 1.5;
 }
 
 h6 {
-  @include rem(font-size, 16px);
-  line-height: 1.5;
+    @include rem(font-size, 16px);
+    line-height: 1.5;
 }
 
 p {
-  @include rem(font-size, 16px);
-  color: $color-font;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+    @include rem(font-size, 18px);
+    color: $color-font;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
 }
 
 ul,
 ol {
-  @include rem(font-size, 16px);
-  color: $color-font;
-  margin: 0;
-  margin-bottom: 0.5rem;
+    @include rem(font-size, 18px);
+    color: $color-font;
+    margin: 0;
+    margin-bottom: 0.5rem;
 }
 
 strong,
 b {
-  color: $color-gray-81;
+    color: $color-gray-81;
 }
 
 input,
 textarea,
 select {
-  @include rem(font-size, 16px);
-  color: $color-font;
-  border-radius: 0 !important;
+    @include rem(font-size, 18px);
+    color: $color-font;
+    border-radius: 0 !important;
 
-  &::-webkit-input-placeholder {
-    color: $color-placeholder;
-  }
+    &::-webkit-input-placeholder {
+        color: $color-placeholder;
+    }
 
-  &::-moz-placeholder {
-    opacity: 1;
-    color: $color-placeholder;
-  }
+    &::-moz-placeholder {
+        opacity: 1;
+        color: $color-placeholder;
+    }
 
-  &:-ms-input-placeholder {
-    color: $color-placeholder;
-  }
+    &:-ms-input-placeholder {
+        color: $color-placeholder;
+    }
 }
 
 :focus {
-  outline: 0;
+    outline: 0;
 }
 
 button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
-  -webkit-appearance: button;
-}
-
-ion-slide {
-  flex-direction: column;
-  align-items: flex-start !important;
-  text-align: left !important;
+    -webkit-appearance: button;
 }
 
 a {

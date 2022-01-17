@@ -1,6 +1,6 @@
 .step {
     display: grid;
-    grid-template-rows: 55px auto;
+    grid-template-rows: 55px 100%;
     grid-gap: 30px;
 
     &___hidden {

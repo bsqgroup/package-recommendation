@@ -8,11 +8,11 @@ import { Props } from './Topbar.interface';
 
 import s from './Topbar.module.scss';
 
-export const Topbar = ({ destinations }: Props) => {
+export const Topbar = ({ visible = true, destinations }: Props) => {
     const { reset } = useControls();
 
     return (
-        <div className={s.topbar}>
+        <div className={`${s.topbar} ${!visible ? s.topbar___hidden : ''}`}>
             <div
                 className={s.topbar__reset}
                 onClick={reset}

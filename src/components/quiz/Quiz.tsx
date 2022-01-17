@@ -42,7 +42,8 @@ export const Quiz = () => {
                 <Spinner />
             ) : (
                 <>
-                    <Step name='intro'>
+                    <Step name="intro">
+                        <Topbar destinations={destinations} visible={false} />
                         <Introduction destinations={destinations} />
                     </Step>
                     {steps && steps.map((step: any) => (

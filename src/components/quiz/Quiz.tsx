@@ -34,14 +34,14 @@ export const Quiz = () => {
         setLoaded(true);
     }, []);
 
-    const { destinations, back, data } = useControls();
+    const { destinations, back } = useControls();
 
     return (
         <div className={s.quiz}>
             {!loaded ? (
                 <Spinner />
             ) : (
-                <>
+                <div className={s.quiz__steps}>
                     <Step name="intro">
                         <Topbar destinations={destinations} visible={false} />
                         <Introduction destinations={destinations} />
@@ -64,7 +64,7 @@ export const Quiz = () => {
                             )}
                         </Step>
                     ))}
-                </>
+                </div>
             )}
         </div>
     );

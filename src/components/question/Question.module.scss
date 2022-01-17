@@ -1,4 +1,5 @@
 .question {
+    @include rem(padding, 20px);
     display: block;
 
     &__header {

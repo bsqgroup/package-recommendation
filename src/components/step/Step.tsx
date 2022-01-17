@@ -18,7 +18,9 @@ export function Step<T extends Tree>({ children, name }: PropsWithChildren<StepP
         }
     }, [name, tree]);
 
-    return <div className={s.step}>
-        {step === name && children}
-    </div>;
+    return (
+        <div className={`${s.step} ${step !== name ? s.step___hidden : ''}`}>
+            {step === name && children}
+        </div>
+    );
 }

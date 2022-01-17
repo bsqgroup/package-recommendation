@@ -1,5 +1,5 @@
 .introduction {
-    @include rem(margin-top, 50px);
+    @include rem(padding, 20px);
     display: block;
 
     &__title {

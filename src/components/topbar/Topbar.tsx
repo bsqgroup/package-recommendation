@@ -12,14 +12,16 @@ export const Topbar = ({ visible = true, destinations }: Props) => {
     const { reset } = useControls();
 
     return (
-        <div className={`${s.topbar} ${!visible ? s.topbar___hidden : ''}`}>
-            <div
-                className={s.topbar__reset}
-                onClick={reset}
-            >
-                <FontAwesomeIcon icon={faUndo} />
-                Start Again
-            </div>
+        <div className={s.topbar}>
+            { visible && (
+                <div
+                    className={s.topbar__reset}
+                    onClick={reset}
+                >
+                    <FontAwesomeIcon icon={faUndo} />
+                    Start Again
+                </div>
+            )}
         </div>
     );
 };

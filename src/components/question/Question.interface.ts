@@ -5,6 +5,7 @@ export interface Props {
     name: string;
     question: string;
     answers: IAnswer[];
+    back?: any;
     destinations: any;
     columns: number;
     prev?: boolean;

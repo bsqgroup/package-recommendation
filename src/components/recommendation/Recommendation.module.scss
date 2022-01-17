@@ -21,7 +21,7 @@
             @include breakpoint(md) {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                grid-gap: 30px;
+                grid-gap: 50px;
             }
         }
     }

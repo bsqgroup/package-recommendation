@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Step, Controls, useControls } from 'react-decision-tree-flow';
 
+import { useControls } from 'components/controls/Controls';
 import Introduction from 'components/introduction/Introduction';
 import Question from 'components/question/Question';
 import Recommendation from 'components/recommendation/Recommendation';
 import { Spinner } from 'components/spinner/Spinner';
+import { Step } from 'components/step/Step';
 import { Topbar } from 'components/topbar/Topbar';
 import { getQuestions } from 'services/questions.service';
 import { getRecommendations } from 'services/recommendations.service';
@@ -33,7 +34,7 @@ export const Quiz = () => {
         setLoaded(true);
     }, []);
 
-    const { destinations } = useControls();
+    const { destinations, back, data } = useControls();
 
     return (
         <div className={s.quiz}>
@@ -52,6 +53,7 @@ export const Quiz = () => {
                                     {...step.question}
                                     name={step.name}
                                     destinations={destinations}
+                                    back={back}
                                     columns={step.question.answers.length}
                                     activeCode={activeCode}
                                     setActiveCode={setActiveCode}

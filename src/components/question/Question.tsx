@@ -11,10 +11,7 @@ import s from './Question.module.scss';
 export default (props: Props): JSX.Element => {
     const [currentAnswer, setCurrentAnswer] = useState<string>('');
     const [nextStep, setNextStep] = useState<string>('');
-    const { id, question, answers, destinations, columns, activeCode, setActiveCode } = props;
-    const prevStep = Object.keys(destinations)[Object.keys(destinations).length - 1] === 'intro'
-        ? destinations[Object.keys(destinations)[Object.keys(destinations).length - 2]]
-        : destinations[Object.keys(destinations)[Object.keys(destinations).length - 1]];
+    const { id, question, answers, destinations, back, columns, activeCode, setActiveCode } = props;
     const firstStep = id === 1;
     const lastStep = id === 9;
 
@@ -67,7 +64,7 @@ export default (props: Props): JSX.Element => {
                     {!firstStep && (
                         <Button
                             role="secondary"
-                            onClick={prevStep}
+                            onClick={back}
                             disabled={firstStep}
                         >
                             Previous

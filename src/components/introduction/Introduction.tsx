@@ -9,8 +9,7 @@ export default (props: Props): JSX.Element => (
     <div className={s.introduction}>
         <h1 className={s.introduction__title}>Find the perfect package</h1>
         <h3 className={s.introduction__subtitle}>
-            Let us help you with choosing the perfect package for your company
-            formation.
+            Let us help you choose the right package for your company formation
         </h3>
         <Button
             className={s.introduction__button}

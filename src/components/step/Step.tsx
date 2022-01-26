@@ -7,14 +7,14 @@ import s from './Step.module.scss'
 
 export interface StepProps<T> {
     name: keyof T;
-    type: string;
+    type?: string;
 }
 
 export function Step<T extends Tree>({ children, name, type }: PropsWithChildren<StepProps<T>>) {
     const { step, tree } = useControls<T>();
     const hiddenClass = step !== name ? s.step___hidden : '';
     const introClass = name === 'intro' ? s.step___intro : '';
-    const recommendationClass = type === 'Recommendation' ? s.step___recommendation : '';
+    const recommendationClass = type && type === 'Recommendation' ? s.step___recommendation : '';
 
     useEffect(() => {
         if (!Object.keys(tree).includes(name as string)) {

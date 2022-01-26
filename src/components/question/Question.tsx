@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/pro-solid-svg-icons';
+import { faCheck, faInfoCircle } from '@fortawesome/pro-solid-svg-icons';
+import ReactTooltip from 'react-tooltip';
 
 import Button from 'components/button/Button';
+import Progress from 'components/progress/Progress';
 import { IAnswer } from 'interfaces';
 import { Props } from './Question.interface';
 
@@ -11,7 +13,7 @@ import s from './Question.module.scss';
 export default (props: Props): JSX.Element => {
     const [currentAnswer, setCurrentAnswer] = useState<string>('');
     const [nextStep, setNextStep] = useState<string>('');
-    const { id, question, answers, destinations, back, columns, activeCode, setActiveCode } = props;
+    const { id, question, answers, info_text, destinations, back, columns, activeCode, setActiveCode } = props;
     const firstStep = id === 1;
     const lastStep = id === 9;
 
@@ -32,7 +34,14 @@ export default (props: Props): JSX.Element => {
     return (
         <div className={s.question}>
             <div className={s.question__header}>
-                <h1 className={s.question__question}>{id}. {question}</h1>
+                <h1 className={s.question__question}>
+                    {id}. {question}
+                    <FontAwesomeIcon
+                        icon={faInfoCircle}
+                        className={s.question__infoIcon}
+                        data-tip={info_text}
+                    />
+                </h1>
             </div>
             <div className={s.question__options}>
                 {answers && answers.map((item: IAnswer, i: number) => {
@@ -57,8 +66,7 @@ export default (props: Props): JSX.Element => {
                     );
                 })}
             </div>
-            <div className={s.question__progress}>
-            </div>
+            <Progress currentStep={id} />
             <div className={s.question__actions}>
                 <div>
                     {!firstStep && (
@@ -76,7 +84,7 @@ export default (props: Props): JSX.Element => {
                         <Button
                             role="success"
                             onClick={destinations[nextStep]}
-                            disabled={!currentAnswer}
+                            disabled={currentAnswer === ''}
                         >
                             Next
                         </Button>
@@ -84,13 +92,14 @@ export default (props: Props): JSX.Element => {
                         <Button
                             role="success"
                             onClick={destinations[activeCode]}
-                            disabled={!currentAnswer}
+                            disabled={currentAnswer === ''}
                         >
                             Next
                         </Button>
                     )}
                 </div>
             </div>
+            <ReactTooltip effect="solid" className={s.question__tooltip} />
         </div>
     );
 };

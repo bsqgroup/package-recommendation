@@ -1,10 +1,11 @@
-import { IAnswer } from 'interfaces';
+import { DirectusMarkdown, IAnswer } from 'interfaces';
 
 export interface Props {
     id: number;
     name: string;
     question: string;
     answers: IAnswer[];
+    info_text: DirectusMarkdown;
     back?: any;
     destinations: any;
     columns: number;

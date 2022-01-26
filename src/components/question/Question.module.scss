@@ -10,6 +10,18 @@
         @include rem(font-size, 32px);
         @include myriad(400);
         @include rem(margin-bottom, 25px);
+        display: flex;
+        align-items: baseline;
+    }
+
+    &__infoIcon {
+        @include rem(font-size, 21px);
+        @include rem(margin-left, 10px);
+        color: $color-gray-23;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     &__options {
@@ -84,5 +96,10 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+    }
+    
+    &__tooltip {
+        @include myriad(400);
+        font-size: 1.125rem!important;
     }
 }

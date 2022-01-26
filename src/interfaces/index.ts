@@ -21,6 +21,7 @@ export interface IQuestion {
     id: string;
     name: string;
     question: DirectusMarkdown;
+    info_text :DirectusMarkdown;
     answers: IAnswer[];
 }
 

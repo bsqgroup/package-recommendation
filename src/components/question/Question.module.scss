@@ -54,6 +54,7 @@
 
         &___selected {
             box-shadow: 0 0 0 2px $color-green;
+            background-color: lighten($color-green, 50%);
 
             &:hover {
                 box-shadow: 0 0 0 2px $color-green!important;

@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactTooltip from 'react-tooltip';
 
 import { Quiz } from 'components/quiz/Quiz';
 import { Wizard } from 'components/wizard/Wizard';
@@ -37,6 +38,7 @@ export default (): JSX.Element => {
                     </Wizard>
                 </div>
             </div>
+            <ReactTooltip effect="solid" className={s.app__tooltip} />
         </div>
     );
 };

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faInfoCircle } from '@fortawesome/pro-solid-svg-icons';
-import ReactTooltip from 'react-tooltip';
 
+import Actions from 'components/actions/Actions';
 import Button from 'components/button/Button';
 import Progress from 'components/progress/Progress';
 import { IAnswer } from 'interfaces';
@@ -10,10 +10,9 @@ import { Props } from './Question.interface';
 
 import s from './Question.module.scss';
 
-export default (props: Props): JSX.Element => {
+export default ({ id, question, answers, info_text, destinations, back, columns, activeCode, setActiveCode }: Props): JSX.Element => {
     const [currentAnswer, setCurrentAnswer] = useState<string>('');
     const [nextStep, setNextStep] = useState<string>('');
-    const { id, question, answers, info_text, destinations, back, columns, activeCode, setActiveCode } = props;
     const firstStep = id === 1;
     const lastStep = id === 9;
 
@@ -32,74 +31,50 @@ export default (props: Props): JSX.Element => {
     };
 
     return (
-        <div className={s.question}>
-            <div className={s.question__header}>
-                <h1 className={s.question__question}>
-                    {id}. {question}
-                    <FontAwesomeIcon
-                        icon={faInfoCircle}
-                        className={s.question__infoIcon}
-                        data-tip={info_text}
-                    />
-                </h1>
-            </div>
-            <div className={s.question__options}>
-                {answers && answers.map((item: IAnswer, i: number) => {
-                    const { id, name, answer, next_question, recommendation, quit_quiz } = item;
-                    const selected = name === currentAnswer;
+        <>
+            <div className={s.question}>
+                <div className={s.question__header}>
+                    <h1 className={s.question__question}>
+                        {id}. {question}
+                        <FontAwesomeIcon
+                            icon={faInfoCircle}
+                            className={s.question__infoIcon}
+                            data-tip={info_text}
+                        />
+                    </h1>
+                </div>
+                <div className={s.question__options}>
+                    {answers && answers.map((item: IAnswer, i: number) => {
+                        const { id, name, answer, next_question, recommendation, quit_quiz } = item;
+                        const selected = name === currentAnswer;
 
-                    return (
-                        <div
-                            key={`question-${id}-answer-${i}`}
-                            className={`${s.question__option} ${selected ? s.question__option___selected : ''}`}
-                            onClick={() => selectAnswer(item)}
-                        >
-                            <h3 className={s.question__answer}>{answer}</h3>
-                            <div className={`${s.question__icon} ${selected ? s.question__icon___active : ''}`}>
-                                <FontAwesomeIcon
-                                    icon={faCheck}
-                                    size='sm'
-                                    aria-label='check icon.'
-                                />
+                        return (
+                            <div
+                                key={`question-${id}-answer-${i}`}
+                                className={`${s.question__option} ${selected ? s.question__option___selected : ''}`}
+                                onClick={() => selectAnswer(item)}
+                            >
+                                <h3 className={s.question__answer}>{answer}</h3>
+                                <div className={`${s.question__icon} ${selected ? s.question__icon___active : ''}`}>
+                                    <FontAwesomeIcon
+                                        icon={faCheck}
+                                        size='sm'
+                                        aria-label='check icon.'
+                                    />
+                                </div>
                             </div>
-                        </div>
-                    );
-                })}
+                        );
+                    })}
+                </div>
             </div>
             <Progress currentStep={id} />
-            <div className={s.question__actions}>
-                <div>
-                    {!firstStep && (
-                        <Button
-                            role="secondary"
-                            onClick={back}
-                            disabled={firstStep}
-                        >
-                            Previous
-                        </Button>
-                    )}
-                </div>
-                <div>
-                    {!lastStep ? (
-                        <Button
-                            role="success"
-                            onClick={destinations[nextStep]}
-                            disabled={currentAnswer === ''}
-                        >
-                            Next
-                        </Button>
-                    ) : (
-                        <Button
-                            role="success"
-                            onClick={destinations[activeCode]}
-                            disabled={currentAnswer === ''}
-                        >
-                            Next
-                        </Button>
-                    )}
-                </div>
-            </div>
-            <ReactTooltip effect="solid" className={s.question__tooltip} />
-        </div>
+            <Actions
+                firstStep={firstStep}
+                lastStep={lastStep}
+                nextStep={nextStep}
+                activeCode={activeCode}
+                currentAnswer={currentAnswer}
+            />
+        </>
     );
 };

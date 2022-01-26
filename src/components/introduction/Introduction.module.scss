@@ -1,6 +1,11 @@
 .introduction {
     @include rem(padding, 20px);
-    display: block;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-self: center;
+    align-items: flex-start;
+    justify-content: center;
 
     &__title {
         @include rem(font-size, 52px);

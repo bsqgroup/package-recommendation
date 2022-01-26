@@ -11,6 +11,8 @@ export interface StepProps<T> {
 
 export function Step<T extends Tree>({ children, name }: PropsWithChildren<StepProps<T>>) {
     const { step, tree } = useControls<T>();
+    const hiddenClass = step !== name ? s.step___hidden : '';
+    const introClass = name === 'intro' ? s.step___intro : '';
 
     useEffect(() => {
         if (!Object.keys(tree).includes(name as string)) {
@@ -19,7 +21,7 @@ export function Step<T extends Tree>({ children, name }: PropsWithChildren<StepP
     }, [name, tree]);
 
     return (
-        <div className={`${s.step} ${step !== name ? s.step___hidden : ''}`}>
+        <div className={`${s.step} ${hiddenClass} ${introClass}`}>
             {step === name && children}
         </div>
     );

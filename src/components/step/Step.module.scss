@@ -6,4 +6,8 @@
     &___hidden {
         display: none;
     }
+
+    &___intro {
+        grid-template-rows: 55px auto;
+    }
 }

@@ -47,7 +47,7 @@ export const Quiz = () => {
                         <Introduction destinations={destinations} />
                     </Step>
                     {steps && steps.map((step: any) => (
-                        <Step key={step.name} name={step.name}>
+                        <Step key={step.name} name={step.name} type={step.type}>
                             <Topbar destinations={destinations} />
                             {step.type === 'Question' ? (
                                 <Question

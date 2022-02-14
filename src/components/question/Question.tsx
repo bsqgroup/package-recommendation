@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faInfoCircle } from '@fortawesome/pro-solid-svg-icons';
 
 import Actions from 'components/actions/Actions';
-import Button from 'components/button/Button';
+import Markdown from 'components/markdown/Markdown';
 import Progress from 'components/progress/Progress';
 import { IAnswer } from 'interfaces';
 import { Props } from './Question.interface';
@@ -35,14 +35,8 @@ export default ({ id, question, answers, info_text, destinations, back, columns,
         <>
             <div className={s.question}>
                 <div className={s.question__header}>
-                    <h1 className={s.question__question}>
-                        {id}. {question}
-                        <FontAwesomeIcon
-                            icon={faInfoCircle}
-                            className={s.question__infoIcon}
-                            data-tip={info_text}
-                        />
-                    </h1>
+                    <h1 className={s.question__question}>{id}. {question}</h1>
+                    <Markdown className={s.question__helpText} source={info_text} />
                 </div>
                 <div className={s.question__options}>
                     {answers && answers.map((item: IAnswer, i: number) => {
@@ -59,8 +53,8 @@ export default ({ id, question, answers, info_text, destinations, back, columns,
                                 <div className={`${s.question__icon} ${selected ? s.question__icon___active : ''}`}>
                                     <FontAwesomeIcon
                                         icon={faCheck}
-                                        size='sm'
-                                        aria-label='check icon.'
+                                        size="sm"
+                                        aria-label="check icon."
                                     />
                                 </div>
                             </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactTooltip from 'react-tooltip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faInfoCircle } from '@fortawesome/pro-solid-svg-icons';
 
@@ -75,6 +76,7 @@ export default ({ id, question, answers, info_text, destinations, back, columns,
                 activeCode={activeCode}
                 currentAnswer={currentAnswer}
             />
+            <ReactTooltip effect="solid" className={s.question__tooltip} />
         </>
     );
 };

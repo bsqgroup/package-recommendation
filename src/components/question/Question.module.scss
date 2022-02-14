@@ -91,4 +91,9 @@
     &__progress {
         @include rem(margin-bottom, 30px);
     }
+    
+    &__tooltip {
+        @include myriad(400);
+        font-size: 1.125rem!important;
+    }
 }

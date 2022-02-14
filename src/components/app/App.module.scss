@@ -30,9 +30,4 @@
         align-items: center;
         justify-content: space-between;
     }
-    
-    &__tooltip {
-        @include myriad(400);
-        font-size: 1.125rem!important;
-    }
 }

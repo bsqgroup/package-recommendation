@@ -3,7 +3,19 @@
     display: block;
 
     &__header {
-        @include rem(margin-bottom, 15px);
+        @include rem(margin-bottom, 30px);
+        display: grid;
+        grid-template-columns: 30px auto;
+        align-items: baseline;
+
+        @include breakpoint(lg) {
+            @include rem(margin-bottom, 50px);
+        }
+    }
+
+    &__number {
+        @include rem(font-size, 32px);
+        @include myriad(400);
     }
 
     &__question {
@@ -14,7 +26,7 @@
     }
 
     &__helpText {
-        @include rem(margin-bottom, 30px);
+        display: block;
     }
 
     &__options {

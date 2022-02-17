@@ -35,9 +35,7 @@
     &__header {
         @include rem(margin-bottom, 15px);
         display: flex;
-        align-items: row;
-        flex-direction: center;
-        justify-content: space-between;
+        flex-direction: column;
     }
 
     &__package {

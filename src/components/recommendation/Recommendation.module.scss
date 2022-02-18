@@ -3,6 +3,9 @@
     @include rem(margin-top, 50px);
     display: block;
     min-height: 55vh;
+    transition-property: height;
+    transition-timing-function: linear;
+    transition-duration: 0.5s;
 
     &__columns {
         display: flex;

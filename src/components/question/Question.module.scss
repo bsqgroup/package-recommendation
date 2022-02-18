@@ -3,6 +3,9 @@
     @include rem(margin-top, 50px);
     display: block;
     min-height: 55vh;
+    transition-property: height;
+    transition-timing-function: linear;
+    transition-duration: 0.5s;
 
     &__header {
         @include rem(margin-top, 30px);
@@ -19,6 +22,7 @@
     &__number {
         @include rem(font-size, 32px);
         @include myriad(400);
+        color: $color-font-headline;
     }
 
     &__question {

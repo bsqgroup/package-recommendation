@@ -1,8 +1,11 @@
 .question {
-    @include rem(padding, 20px);
+    @include rem(padding, 20px 50px);
+    @include rem(margin-top, 50px);
     display: block;
+    min-height: 55vh;
 
     &__header {
+        @include rem(margin-top, 30px);
         @include rem(margin-bottom, 30px);
         display: grid;
         grid-template-columns: 30px auto;

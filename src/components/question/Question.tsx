@@ -73,7 +73,6 @@ export default ({ id, question, answers, info_text, destinations, back, columns,
                 activeCode={activeCode}
                 currentAnswer={currentAnswer}
             />
-            <ReactTooltip effect="solid" className={s.question__tooltip} />
         </>
     );
 };

@@ -44,24 +44,28 @@ export const Quiz = () => {
                 <div className={s.quiz__steps}>
                     <Step name="intro">
                         <Topbar destinations={destinations} visible={false} />
-                        <Introduction destinations={destinations} />
+                        <div className={s.quiz__step}>
+                            <Introduction destinations={destinations} />
+                        </div>
                     </Step>
                     {steps && steps.map((step: any) => (
                         <Step key={step.name} name={step.name} type={step.type}>
                             <Topbar destinations={destinations} />
-                            {step.type === 'Question' ? (
-                                <Question
-                                    {...step.question}
-                                    name={step.name}
-                                    destinations={destinations}
-                                    back={back}
-                                    columns={step.question.answers.length}
-                                    activeCode={activeCode}
-                                    setActiveCode={setActiveCode}
-                                />
-                            ) : (
-                                <Recommendation {...step.recommendation} />
-                            )}
+                            <div className={s.quiz__step}>
+                                {step.type === 'Question' ? (
+                                    <Question
+                                        {...step.question}
+                                        name={step.name}
+                                        destinations={destinations}
+                                        back={back}
+                                        columns={step.question.answers.length}
+                                        activeCode={activeCode}
+                                        setActiveCode={setActiveCode}
+                                    />
+                                ) : (
+                                    <Recommendation {...step.recommendation} />
+                                )}
+                            </div>
                         </Step>
                     ))}
                 </div>

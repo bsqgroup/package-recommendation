@@ -1,6 +1,8 @@
 .recommendation {
-    @include rem(padding, 20px);
-    display: flex;
+    @include rem(padding, 20px 50px);
+    @include rem(margin-top, 50px);
+    display: block;
+    min-height: 55vh;
 
     &__columns {
         display: flex;

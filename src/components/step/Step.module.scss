@@ -1,17 +1,8 @@
 .step {
-    display: grid;
-    grid-template-rows: 55px auto 25px 45px;
-    grid-gap: 30px;
+    box-sizing: border-box;
+    height: 100%;
 
     &___hidden {
         display: none;
-    }
-
-    &___intro {
-        grid-template-rows: 55px 100%;
-    }
-
-    &___recommendation {
-        grid-template-rows: 55px 100%;
     }
 }

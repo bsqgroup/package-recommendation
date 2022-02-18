@@ -1,20 +1,26 @@
 .introduction {
     @include rem(padding, 20px);
+    @include rem(margin-top, 50px);
+    height: calc(100% - 50px);
     display: flex;
     flex-direction: column;
-    height: 100%;
     align-self: center;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
+    text-align: center;
 
-    &__title {
-        @include rem(font-size, 52px);
-        @include myriad(400);
+    &__logo {
+        @include rem(margin-bottom, 30px);
     }
 
-    &__subtitle {
-        @include rem(font-size, 21px);
-        @include rem(margin-bottom, 30px);
+    &__title {
+        @include rem(font-size, 38px);
         @include myriad(400);
+        @include rem(margin-bottom, 30px);
+    }
+
+    &__icon {
+        @include rem(margin-top, 15px);
+        color: $color-font-headline;
     }
 }

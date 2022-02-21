@@ -38,7 +38,7 @@ export default ({ id, question, answers, info_text, destinations, back, columns,
                     <div className={s.question__number}>{id}.</div>
                     <div>
                         <h1 className={s.question__question}>{question}</h1>
-                        <Markdown className={s.question__helpText} source={info_text} />
+                        {info_text && <Markdown className={s.question__helpText} source={info_text} />}
                     </div>
                 </div>
                 <div className={s.question__options}>

@@ -12,24 +12,10 @@
         flex-direction: column;
         width: 100%;
 
-        &___one {
-            display: flex;
-
-            @include breakpoint(md) {
-                display: grid;
-                grid-template-columns: 1fr;
-                grid-gap: 30px;
-            }
-        }
-
-        &___two {
-            display: flex;
-
-            @include breakpoint(md) {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                grid-gap: 50px;
-            }
+        @include breakpoint(md) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 50px;
         }
     }
 
@@ -70,7 +56,6 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
     }
 
     &__button {

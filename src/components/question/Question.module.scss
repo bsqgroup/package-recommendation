@@ -8,15 +8,11 @@
     transition-duration: 0.5s;
 
     &__header {
-        @include rem(margin-top, 30px);
+        @include rem(min-height, 200px);
         @include rem(margin-bottom, 30px);
         display: grid;
         grid-template-columns: 30px auto;
         align-items: baseline;
-
-        @include breakpoint(lg) {
-            @include rem(margin-bottom, 50px);
-        }
     }
 
     &__number {

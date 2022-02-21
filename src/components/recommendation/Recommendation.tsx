@@ -10,12 +10,11 @@ import s from './Recommendation.module.scss';
 
 export default (props: Props): JSX.Element => {
     const { id, name, recommended_package, recommended_package_content, optional_package, optional_package_content } = props;
-    const recommendationStyle = optional_package ? s.recommendation__columns___two : s.recommendation__columns___one;
 
     return (
         <>
             <div className={s.recommendation}>
-                <div className={`${s.recommendation__columns} ${recommendationStyle}`}>
+                <div className={s.recommendation__columns}>
                     <div className={s.recommendation__column}>
                         <h1 className={s.recommendation__title}>We recommend...</h1>
                         <div className={s.recommendation__header}>
@@ -42,6 +41,7 @@ export default (props: Props): JSX.Element => {
                             <Button
                                 role="success"
                                 to={recommended_package.buy_link}
+                                className={s.recommendation__button___buy}
                             >
                                 Buy Now
                             </Button>
@@ -78,6 +78,7 @@ export default (props: Props): JSX.Element => {
                                 <Button
                                     role="success"
                                     to={optional_package.buy_link}
+                                    className={s.recommendation__button___buy}
                                 >
                                     Buy Now
                                 </Button>

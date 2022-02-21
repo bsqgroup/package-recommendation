@@ -16,6 +16,12 @@
     &__title {
         @include rem(font-size, 38px);
         @include myriad(400);
+        @include rem(margin-bottom, 10px);
+    }
+
+    &__subtitle {
+        @include rem(font-size, 26px);
+        @include myriad(400);
         @include rem(margin-bottom, 30px);
     }
 

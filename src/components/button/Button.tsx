@@ -19,6 +19,7 @@ export default ({
                 href={to}
                 rel="nofollow noreferrer noopener"
                 aria-label={ariaLabel}
+                target="_parent"
             >
                 {children}
             </a>

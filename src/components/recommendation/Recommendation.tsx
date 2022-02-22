@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/pro-solid-svg-icons';
 
 import Button from 'components/button/Button';
 import Markdown from 'components/markdown/Markdown';
+import { postLog } from 'services/logs.service';
 import { Props } from './Recommendation.interface';
 
 import s from './Recommendation.module.scss';
 
 export default (props: Props): JSX.Element => {
     const { id, name, recommended_package, recommended_package_content, optional_package, optional_package_content } = props;
+
+    useEffect(() => {
+        const postData = async () => {
+            const log = await postLog(recommended_package.id);
+        };
+        postData().catch(console.error);
+    }, []);
 
     return (
         <>

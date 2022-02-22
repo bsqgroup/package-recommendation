@@ -3,8 +3,9 @@ const getIpAddress = async () =>
     .then((data) => data.json())
     .then((data) => data.ip_address);
 
-export const postLog = async (packageId: number) => {
+export const postLog = async (packageId: string) => {
     const ipAddress = await getIpAddress();
+
     return await fetch(
         'https://recommendation.directus.1stformations.co.uk/items/logs/?fields=*.*.*',
         {

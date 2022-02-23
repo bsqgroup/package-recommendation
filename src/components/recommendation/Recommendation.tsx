@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useCookies } from 'react-cookie';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/pro-solid-svg-icons';
 
@@ -19,10 +20,13 @@ export default (props: Props): JSX.Element => {
         optional_package,
         optional_package_content,
     } = props;
+    
 
     useEffect(() => {
         const postData = async () => {
-            const log = await postLog(recommended_package.id);
+            const [cookies] = useCookies();
+            const email = cookies['prkfjd837'];
+            const log = await postLog(recommended_package.id, email);
         };
         postData().catch(console.error);
     }, []);

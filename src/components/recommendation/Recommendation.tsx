@@ -23,6 +23,7 @@ export default (props: Props): JSX.Element => {
     
     const [cookies] = useCookies();
     const email = cookies['prkfjd837'];
+    console.log(`email is: ${email}`);
 
     useEffect(() => {
         const postData = async () => {

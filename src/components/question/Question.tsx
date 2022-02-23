@@ -24,10 +24,10 @@ export default ({ id, question, answers, info_text, destinations, back, columns,
                 setNextStep(item.recommendation.name);
             } else {
                 setActiveCode(item.recommendation.name);
-                setNextStep(item.next_question.name);
+                if (!lastStep) setNextStep(item.next_question.name);
             }
         } else {
-            setNextStep(item.next_question.name);
+            if (!lastStep) setNextStep(item.next_question.name);
         }
     };
 

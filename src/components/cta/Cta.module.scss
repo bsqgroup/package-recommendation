@@ -1,0 +1,17 @@
+.cta {
+    @include rem(margin-top, 50px);
+    text-align: center;
+
+    h3 {
+        @include rem(font-size, 28px)
+    }
+
+    a {
+        @include rem(font-size, 28px);
+
+        svg {
+            @include rem(font-size, 21px);
+            @include rem(margin-right, 5px);
+        }
+    }
+}

@@ -12,6 +12,7 @@ export interface Props {
 export interface Package {
     id: string;
     name: string;
+    description: string;
     price: string;
     buy_link: string;
     details_link: string;

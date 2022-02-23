@@ -46,6 +46,7 @@ export interface IAnswer {
 export interface IPackage {
     id: string;
     name: string;
+    description: string;
     price: string;
     buy_link: string;
     details_link: string;

@@ -21,11 +21,11 @@ export default (props: Props): JSX.Element => {
         optional_package_content,
     } = props;
     
+    const [cookies] = useCookies();
+    const email = cookies['prkfjd837'];
 
     useEffect(() => {
         const postData = async () => {
-            const [cookies] = useCookies();
-            const email = cookies['prkfjd837'];
             const log = await postLog(recommended_package.id, email);
         };
         postData().catch(console.error);

@@ -25,7 +25,7 @@ export default (): JSX.Element => {
         LBS3: [],
         LBS4: [],
         LBS5: [],
-        reset: ['intro'],
+        reset: ['Q1'],
     } as const;
 
     return (

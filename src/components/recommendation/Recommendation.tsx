@@ -115,7 +115,6 @@ export default (props: Props): JSX.Element => {
                         </>
                     )}
                 </div>
-                <Cta />
             </div>
         </>
     );

@@ -3,10 +3,9 @@ const getIpAddress = async () =>
     .then((data) => data.json())
     .then((data) => data.ip_address);
 
-export const postLog = async (packageId: string, email: string) => {
+export const postLog = async (packageId: string) => {
     const ipAddress = await getIpAddress();
-
-    if (!ipAddress && !email) return;
+    if (!ipAddress) return;
 
     return await fetch(
         'https://recommendation.directus.1stformations.co.uk/items/logs/?fields=*.*.*',
@@ -18,7 +17,6 @@ export const postLog = async (packageId: string, email: string) => {
             body: JSON.stringify({
                 ip_address: ipAddress,
                 recommended_package: packageId,
-                email_address: email,
             }),
         }
     )

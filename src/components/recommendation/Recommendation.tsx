@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
-import { useCookies } from 'react-cookie';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/pro-solid-svg-icons';
 
 import Button from 'components/button/Button';
-import Cta from 'components/cta/Cta';
 import Markdown from 'components/markdown/Markdown';
 import { postLog } from 'services/logs.service';
 import { Props } from './Recommendation.interface';
@@ -20,14 +18,10 @@ export default (props: Props): JSX.Element => {
         optional_package,
         optional_package_content,
     } = props;
-    
-    const [cookies] = useCookies();
-    const email = cookies['prkfjd837'];
-    console.log(`email is: ${email}`);
 
     useEffect(() => {
         const postData = async () => {
-            const log = await postLog(recommended_package.id, email);
+            const log = await postLog(recommended_package.id);
         };
         postData().catch(console.error);
     }, []);

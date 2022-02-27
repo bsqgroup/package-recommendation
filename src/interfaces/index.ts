@@ -32,6 +32,7 @@ export interface IRecommendation {
     recommended_package_content: DirectusMarkdown;
     optional_package?: IPackage;
     optional_package_content?: DirectusMarkdown;
+    hide_details: boolean;
 }
 
 export interface IAnswer {

@@ -17,6 +17,7 @@ export default (props: Props): JSX.Element => {
         recommended_package_content,
         optional_package,
         optional_package_content,
+        hide_details,
     } = props;
 
     useEffect(() => {
@@ -47,9 +48,11 @@ export default (props: Props): JSX.Element => {
                                 />
                             }
                         />
-                        <div className={s.recommendation__details}>
-                            <p><strong>{recommended_package.name} Package</strong><br /> {recommended_package.description}</p>
-                        </div>
+                        {!hide_details && (
+                            <div className={s.recommendation__details}>
+                                <p><strong>{recommended_package.name} Package</strong><br /> {recommended_package.description}</p>
+                            </div>
+                        )}
                         <div className={s.recommendation__price}>
                             <span>£{recommended_package.price}</span>
                         </div>
@@ -90,9 +93,11 @@ export default (props: Props): JSX.Element => {
                                         />
                                     }
                                 />
-                                <div className={s.recommendation__details}>
-                                    <p><strong>{optional_package.name} Package</strong><br />{optional_package.description}</p>
-                                </div>
+                                {!hide_details && (
+                                    <div className={s.recommendation__details}>
+                                        <p><strong>{optional_package.name} Package</strong><br />{optional_package.description}</p>
+                                    </div>
+                                )}
                                 <div className={s.recommendation__price}>
                                     <span>£{optional_package.price}</span>
                                 </div>

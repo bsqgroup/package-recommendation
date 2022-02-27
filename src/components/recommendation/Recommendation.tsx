@@ -33,10 +33,7 @@ export default (props: Props): JSX.Element => {
                     <div className={s.recommendation__column}>
                         <h1 className={s.recommendation__title}>We recommend...</h1>
                         <div className={s.recommendation__header}>
-                            <h3 className={s.recommendation__package}>
-                                {recommended_package.name} Package
-                            </h3>
-                            <p className={s.recommendation__description}>{recommended_package.description}</p>
+                            <h3 className={s.recommendation__package}>{recommended_package.name} Package</h3>
                         </div>
                         <Markdown
                             className={s.recommendation__content}
@@ -50,6 +47,9 @@ export default (props: Props): JSX.Element => {
                                 />
                             }
                         />
+                        <div className={s.recommendation__details}>
+                            <p><strong>{recommended_package.name} Package</strong><br /> {recommended_package.description}</p>
+                        </div>
                         <div className={s.recommendation__price}>
                             <span>£{recommended_package.price}</span>
                         </div>
@@ -77,7 +77,6 @@ export default (props: Props): JSX.Element => {
                                 <h1 className={s.recommendation__title}>Also consider...</h1>
                                 <div className={s.recommendation__header}>
                                     <h3 className={s.recommendation__package}>{optional_package.name} Package</h3>
-                                    <p className={s.recommendation__description}>{optional_package.description}</p>
                                 </div>
                                 <Markdown
                                     className={s.recommendation__content}
@@ -91,6 +90,9 @@ export default (props: Props): JSX.Element => {
                                         />
                                     }
                                 />
+                                <div className={s.recommendation__details}>
+                                    <p><strong>{optional_package.name} Package</strong><br />{optional_package.description}</p>
+                                </div>
                                 <div className={s.recommendation__price}>
                                     <span>£{optional_package.price}</span>
                                 </div>

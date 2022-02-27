@@ -37,12 +37,28 @@
 
     &__package {
         @include rem(font-size, 21px);
+        text-align: center;
+    }
+
+    &__details {
+        @include rem(padding, 15px);
+        @include rem(margin-bottom, 30px);
+        border: 1px solid #ccc;
+        max-width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+
+        p {
+            margin-bottom: 0;
+        }
     }
 
     &__price {
         @include rem(font-size, 21px);
-        @include rem(margin-bottom, 15px);
+        @include rem(margin-bottom, 10px);
         font-weight: 600;
+        text-align: center;
     }
 
     &__content {
@@ -62,7 +78,7 @@
     &__buttons {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
 
     &__button {
@@ -98,7 +114,6 @@
         }
 
         &___details {
-            @include rem(margin-right, 10px);
             background: $color-white;
             color: $color-font;
             border: 1px solid $color-gray-26;

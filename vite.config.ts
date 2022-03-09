@@ -14,6 +14,7 @@ export default defineConfig({
             '/styles': './src/styles',
             '/types': './src/types',
             '/utils': './src/utils',
+            process: 'process/browser',
         },
     },
     css: {

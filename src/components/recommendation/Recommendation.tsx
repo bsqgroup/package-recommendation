@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/pro-solid-svg-icons';
 
 import Button from 'components/button/Button';
+import Cta from 'components/cta/Cta';
 import Markdown from 'components/markdown/Markdown';
 import { postLog } from 'services/logs.service';
 import { Props } from './Recommendation.interface';
@@ -20,6 +21,8 @@ export default (props: Props): JSX.Element => {
         hide_details,
     } = props;
 
+    const columnStyle = optional_package ? s.recommendation__columns___two : s.recommendation__columns___one;
+
     useEffect(() => {
         const postData = async () => {
             const log = await postLog(recommended_package.id);
@@ -30,7 +33,7 @@ export default (props: Props): JSX.Element => {
     return (
         <>
             <div className={s.recommendation}>
-                <div className={s.recommendation__columns}>
+                <div className={`${s.recommendation__columns} ${columnStyle}`}>
                     <div className={s.recommendation__column}>
                         <h1 className={s.recommendation__title}>We recommend...</h1>
                         <div className={s.recommendation__header}>
@@ -43,8 +46,9 @@ export default (props: Props): JSX.Element => {
                             listItemIcon={
                                 <FontAwesomeIcon
                                     icon={faCheck}
-                                    size='sm'
-                                    aria-label='check icon.'
+                                    size="sm"
+                                    aria-label="check icon."
+                                    color="#62a43f"
                                 />
                             }
                         />
@@ -72,6 +76,8 @@ export default (props: Props): JSX.Element => {
                                 Read More
                             </Button>
                         </div>
+
+                        { !optional_package && <Cta /> }
                     </div>
                     {optional_package && (
                         <>
@@ -88,8 +94,9 @@ export default (props: Props): JSX.Element => {
                                     listItemIcon={
                                         <FontAwesomeIcon
                                             icon={faCheck}
-                                            size='sm'
-                                            aria-label='check icon.'
+                                            size="sm"
+                                            aria-label="check icon."
+                                            color="#62a43f"
                                         />
                                     }
                                 />
@@ -121,6 +128,7 @@ export default (props: Props): JSX.Element => {
                         </>
                     )}
                 </div>
+                { optional_package && <Cta /> }
             </div>
         </>
     );

@@ -11,24 +11,15 @@
         padding-left: 0;
         list-style-type: none;
 
-        &___ordered {
-            list-style-type: decimal;
-
-            li {
-                @include rem(padding-left, 8px);
-            }
-        }
-
         &__item {
-            @include rem(margin-bottom, 10px);
+            @include rem(margin-bottom, 7px);
             display: grid;
             grid-template-columns: max-content auto;
             grid-gap: 8px;
-            align-items: baseline;
+            align-items: center;
 
             svg {
                 position: relative;
-                top: 5px;
                 width: 1em !important;
                 font-size: initial !important;
             }

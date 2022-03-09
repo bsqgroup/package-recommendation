@@ -1,6 +1,8 @@
 import React from 'react';
 import Markdown from 'react-markdown';
 import shortcodes from 'remark-shortcodes';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight } from '@fortawesome/pro-solid-svg-icons';
 
 import { Props } from './Markdown.interface';
 
@@ -17,13 +19,28 @@ export default ({ source, className, container, listItemIcon }: Props): JSX.Elem
         },
         ol: (props: any) => {
             if (listItemIcon) {
-                return <ol className={s.markdownList___ordered}>{props.children}</ol>;
+                return <ol className={s.markdownList}>{props.children}</ol>;
             }
 
-            return <ul>{props.children}</ul>;
+            return <ol>{props.children}</ol>;
         },
         li: (props: any) => {
+            console.log(props);
             if (listItemIcon) {
+                if (props.ordered === true) {
+                    return (
+                        <li className={s.markdownList__item}>
+                            <FontAwesomeIcon
+                                icon={faAngleRight}
+                                size='sm'
+                                aria-label='check icon.'
+                                color="#333"
+                            />
+                            <span>{props.children}</span>
+                        </li>
+                    );
+                }
+
                 return (
                     <li className={s.markdownList__item}>
                         {listItemIcon} 

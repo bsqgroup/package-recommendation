@@ -12,7 +12,11 @@
         flex-direction: column;
         width: 100%;
 
-        @include breakpoint(md) {
+        &___one {
+            max-width: 60%;
+        }
+
+        &___two {
             display: grid;
             grid-template-columns: 1fr 15px 1fr;
             grid-gap: 50px;
@@ -44,7 +48,7 @@
         @include rem(padding, 15px);
         @include rem(margin-bottom, 30px);
         border: 1px solid #ccc;
-        max-width: 50%;
+        max-width: 75%;
         margin-left: auto;
         margin-right: auto;
         text-align: center;
@@ -65,12 +69,18 @@
         @include rem(margin-bottom, 30px);
         min-height: 25vh;
 
+        p {
+            margin-bottom: 1.5rem;
+        }
+
         ul,
         ol {
+            @include rem(margin-left, 20px);
+            margin-bottom: 1.5rem!important;
+
             li {
                 svg {
                     font-size: 1.25rem !important;
-                    color: $color-green;
                 }
             }
         }

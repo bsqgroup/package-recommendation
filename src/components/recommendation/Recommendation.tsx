@@ -24,7 +24,7 @@ export default (props: Props): JSX.Element => {
     }, [recommended_package.id]);
 
     useEffect(() => {
-        let loadingTimer = setTimeout(() => setLoaded(true), 250);
+        let loadingTimer = setTimeout(() => setLoaded(true), 500);
         return () => clearTimeout(loadingTimer);
     },[]);
 

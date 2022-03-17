@@ -1,5 +1,5 @@
 const getIpAddress = async () =>
-    await fetch(`https://ipgeolocation.abstractapi.com/v1/?api_key=${import.meta.env.VITE_ABSTRACT_KEY}`)
+    await fetch(`https://ipgeolocation.abstractapi.com/v1/?api_key=${process.env.REACT_APP_ABSTRACT_KEY}`)
     .then((data) => data.json())
     .then((data) => data.ip_address);
 

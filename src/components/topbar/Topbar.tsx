@@ -1,14 +1,12 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faUndo } from '@fortawesome/pro-light-svg-icons';
+import {  faUndo } from '@fortawesome/pro-light-svg-icons';
 
 import { useControls } from 'components/controls/Controls';
-
 import { Props } from './Topbar.interface';
 
 import s from './Topbar.module.scss';
 
-export const Topbar = ({ visible = true, destinations }: Props) => {
+export const Topbar = ({ visible = true }: Props) => {
     const { reset } = useControls();
 
     return (

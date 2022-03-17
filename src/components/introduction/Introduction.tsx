@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/pro-light-svg-icons';
+import { useEffect } from 'react';
+import { ThreeDots } from 'react-loader-spinner';
 
-import Button from 'components/button/Button';
 import { Props } from './Introduction.interface';
 
 import s from './Introduction.module.scss';
@@ -22,8 +20,8 @@ export default (props: Props): JSX.Element => {
             />
             <h1 className={s.introduction__title}>Find the perfect package</h1>
             <h3 className={s.introduction__subtitle}>Let us help you choose the right <br />package for your company formation</h3>
-            <div className={s.introduction__icon}>
-                <FontAwesomeIcon icon={faSpinner} spin size="5x" />
+            <div className={s.introduction__spinner}>
+                <ThreeDots color="#31a5cb" />
             </div>
         </div>
     );

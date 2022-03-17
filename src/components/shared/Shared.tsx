@@ -1,4 +1,4 @@
-import React from 'react';
+import { createContext } from 'react';
 
 export interface Tree {
     readonly [step: string]: readonly string[];
@@ -15,7 +15,7 @@ export interface WizardContextProps<T extends Tree, D extends any = any> {
     back: (data?: D) => void;
 }
 
-export const WizardContext = React.createContext<WizardContextProps<any>>({
+export const WizardContext = createContext<WizardContextProps<any>>({
     tree: {},
     step: '',
     getControls: () => ({}),

@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/pro-solid-svg-icons';
+import { faCheckCircle } from '@fortawesome/pro-solid-svg-icons';
+import { ThreeDots } from 'react-loader-spinner';
 
 import Button from 'components/button/Button';
 import Cta from 'components/cta/Cta';
@@ -11,33 +12,38 @@ import { Props } from './Recommendation.interface';
 import s from './Recommendation.module.scss';
 
 export default (props: Props): JSX.Element => {
-    const {
-        id,
-        name,
-        recommended_package,
-        recommended_package_content,
-        optional_package,
-        optional_package_content,
-        hide_details,
-    } = props;
-
+    const [loaded, setLoaded] = useState<boolean>(false);
+    const { recommended_package, recommended_package_content, optional_package, optional_package_content } = props;
     const columnStyle = optional_package ? s.recommendation__columns___two : s.recommendation__columns___one;
 
     useEffect(() => {
         const postData = async () => {
-            const log = await postLog(recommended_package.id);
+            await postLog(recommended_package.id);
         };
         postData().catch(console.error);
-    }, []);
+    }, [recommended_package.id]);
+
+    useEffect(() => {
+        let loadingTimer = setTimeout(() => setLoaded(true), 250);
+        return () => clearTimeout(loadingTimer);
+    },[]);
+
+    if (!loaded) {
+        return (
+            <div className={s.loader}>
+                <ThreeDots color="#31a5cb" />
+            </div>
+        );
+    }
 
     return (
         <>
             <div className={s.recommendation}>
                 <div className={`${s.recommendation__columns} ${columnStyle}`}>
                     <div className={s.recommendation__column}>
-                        <h1 className={s.recommendation__title}>We recommend...</h1>
+                        <h1 className={s.recommendation__title}>We recommend</h1>
                         <div className={s.recommendation__header}>
-                            <h3 className={s.recommendation__package}>{recommended_package.name} Package</h3>
+                            <h3 className={s.recommendation__package}>The {recommended_package.name} Package</h3>
                         </div>
                         <Markdown
                             className={s.recommendation__content}
@@ -45,18 +51,13 @@ export default (props: Props): JSX.Element => {
                             container
                             listItemIcon={
                                 <FontAwesomeIcon
-                                    icon={faCheck}
+                                    icon={faCheckCircle}
                                     size="sm"
                                     aria-label="check icon."
                                     color="#62a43f"
                                 />
                             }
                         />
-                        {!hide_details && (
-                            <div className={s.recommendation__details}>
-                                <p><strong>{recommended_package.name} Package</strong><br /> {recommended_package.description}</p>
-                            </div>
-                        )}
                         <div className={s.recommendation__price}>
                             <span>£{recommended_package.price}</span>
                         </div>
@@ -93,18 +94,13 @@ export default (props: Props): JSX.Element => {
                                     container
                                     listItemIcon={
                                         <FontAwesomeIcon
-                                            icon={faCheck}
+                                            icon={faCheckCircle}
                                             size="sm"
                                             aria-label="check icon."
                                             color="#62a43f"
                                         />
                                     }
                                 />
-                                {!hide_details && (
-                                    <div className={s.recommendation__details}>
-                                        <p><strong>{optional_package.name} Package</strong><br />{optional_package.description}</p>
-                                    </div>
-                                )}
                                 <div className={s.recommendation__price}>
                                     <span>£{optional_package.price}</span>
                                 </div>

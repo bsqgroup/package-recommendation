@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { ThreeDots } from 'react-loader-spinner';
 
 import { useControls } from 'components/controls/Controls';
 import Introduction from 'components/introduction/Introduction';
 import Question from 'components/question/Question';
 import Recommendation from 'components/recommendation/Recommendation';
-import { Spinner } from 'components/spinner/Spinner';
 import { Step } from 'components/step/Step';
 import { Topbar } from 'components/topbar/Topbar';
 import { getQuestions } from 'services/questions.service';
@@ -39,7 +39,7 @@ export const Quiz = () => {
     return (
         <div className={s.quiz}>
             {!loaded ? (
-                <Spinner />
+                <ThreeDots color="#31a5cb" />
             ) : (
                 <div className={s.quiz__steps}>
                     <Step name="intro">

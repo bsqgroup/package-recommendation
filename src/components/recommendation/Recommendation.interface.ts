@@ -7,7 +7,6 @@ export interface Props {
     recommended_package_content: DirectusMarkdown;
     optional_package?: Package;
     optional_package_content?: DirectusMarkdown;
-    hide_details: boolean;
 }
 
 export interface Package {

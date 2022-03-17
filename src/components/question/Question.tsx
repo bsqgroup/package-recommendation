@@ -1,7 +1,4 @@
-import React, { useState } from 'react';
-import ReactTooltip from 'react-tooltip';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faInfoCircle } from '@fortawesome/pro-solid-svg-icons';
+import { useState } from 'react';
 
 import Actions from 'components/actions/Actions';
 import Markdown from 'components/markdown/Markdown';
@@ -52,14 +49,7 @@ export default ({ id, question, answers, info_text, destinations, back, columns,
                                 className={`${s.question__option} ${selected ? s.question__option___selected : ''}`}
                                 onClick={() => selectAnswer(item)}
                             >
-                                <h3 className={s.question__answer}>{answer}</h3>
-                                <div className={`${s.question__icon} ${selected ? s.question__icon___active : ''}`}>
-                                    <FontAwesomeIcon
-                                        icon={faCheck}
-                                        size="sm"
-                                        aria-label="check icon."
-                                    />
-                                </div>
+                                <h3 className={s.question__answer}><Markdown source={answer} /></h3>
                             </div>
                         );
                     })}

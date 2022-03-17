@@ -1,3 +1,5 @@
+@import "styles/config.scss";
+
 .recommendation {
     @include rem(padding, 50px);
     @include rem(margin-top, 50px);
@@ -13,7 +15,7 @@
         width: 100%;
 
         &___one {
-            max-width: 65%;
+            max-width: 55%;
         }
 
         &___two {
@@ -31,6 +33,8 @@
 
     &__title {
         @include rem(margin-bottom, 30px);
+        @include rem(font-size, 28px);
+        text-align: center;
     }
 
     &__header {
@@ -40,8 +44,9 @@
     }
 
     &__package {
-        @include rem(font-size, 21px);
+        @include rem(font-size, 28px);
         text-align: center;
+        color: $color-green;
     }
 
     &__details {
@@ -59,7 +64,7 @@
     }
 
     &__price {
-        @include rem(font-size, 21px);
+        @include rem(font-size, 28px);
         @include rem(margin-bottom, 10px);
         font-weight: 600;
         text-align: center;
@@ -67,7 +72,9 @@
 
     &__content {
         @include rem(margin-bottom, 30px);
+        max-width: 50%;
         min-height: 20vh;
+        margin: 0 auto;
 
         p {
             margin-bottom: 1.5rem;
@@ -75,12 +82,15 @@
 
         ul,
         ol {
-            @include rem(margin-left, 20px);
             margin-bottom: 1.5rem!important;
 
             li {
+                grid-gap: 15px;
+                line-height: 1.2;
+                align-items: flex-start;
+
                 svg {
-                    font-size: 1.25rem !important;
+                    font-size: 1.2rem !important;
                 }
             }
         }
@@ -136,4 +146,11 @@
             }
         }
     }
+}
+
+.loader {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 }

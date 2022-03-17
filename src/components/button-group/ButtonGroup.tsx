@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Props } from './ButtonGroup.interface';
 
 import s from './ButtonGroup.module.scss';

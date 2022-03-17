@@ -1,3 +1,5 @@
+@import "styles/config.scss";
+
 .question {
     @include rem(padding, 50px);
     @include rem(margin-top, 50px);
@@ -30,6 +32,10 @@
 
     &__helpText {
         display: block;
+
+        p {
+            color: $color-gray-57;
+        }
     }
 
     &__options {
@@ -45,7 +51,7 @@
     }
 
     &__option {
-        @include rem(padding, 15px);
+        @include rem(padding, 20px 15px);
         @include rem(margin-bottom, 15px);
         display: flex;
         flex-direction: row;
@@ -53,46 +59,36 @@
         justify-content: space-between;
         position: relative;
         background-color: $color-white;
-        transition: box-shadow 0.5s;
-        box-shadow: 0 0 0 2px $color-gray-11;
+        transition: border 0.5s;
+        border: 2px solid $color-gray-11;
 
         @include breakpoint(md) {
             margin-bottom: 0;
         }
 
         &___selected {
-            box-shadow: 0 0 0 2px $color-green;
-            background-color: lighten($color-green, 50%);
+            border-color: $color-green;
+            background-color: $color-green;
 
             &:hover {
-                box-shadow: 0 0 0 2px $color-green!important;
+                border-color: $color-green!important;
+                background-color: $color-green!important;
             }
 
             h3 {
-                color: darken($color-green, 20%);
+                color: $color-white;
             }
         }
 
         &:hover {
             cursor: pointer;
-            box-shadow: 0 0 0 2px $color-gray-40;
+            border-color: $color-gray-40;
         }
 
         h3 {
             @include rem(font-size, 18px);
             font-weight: 400;
             margin-bottom: 0;
-        }
-    }
-
-    &__icon {
-        @include rem(font-size, 24px);
-        @include rem(margin-left, 15px);
-        color: transparent;
-        transition: color 0.5s;
-
-        &___active {
-            color: $color-green;
         }
     }
 

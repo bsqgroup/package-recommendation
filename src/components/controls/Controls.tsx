@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React, { Context, PropsWithChildren, ReactNode, useContext } from 'react';
 import { Tree, WizardContext, WizardContextProps } from 'components/shared/Shared';
 
 export interface ControlHook<T extends Tree, D extends any = any> {
@@ -14,8 +14,8 @@ export function useControls<T extends Tree, D extends any = any>(): ControlHook<
     T,
     D
 > {
-    const { getControls, step, tree, data, back, reset } = React.useContext(
-        WizardContext as React.Context<WizardContextProps<T, D>>
+    const { getControls, step, tree, data, back, reset } = useContext(
+        WizardContext as Context<WizardContextProps<T, D>>
     );
     const backFunction = (newData?: D) => {
         back(newData);
@@ -32,7 +32,7 @@ export function useControls<T extends Tree, D extends any = any>(): ControlHook<
 }
 
 export interface ControlProps<T extends Tree, D extends any = any> {
-    children: (steps: ControlHook<T, D>) => React.ReactNode;
+    children: (steps: ControlHook<T, D>) => ReactNode;
 }
 
 export function Controls<T extends Tree, D extends any = any>({

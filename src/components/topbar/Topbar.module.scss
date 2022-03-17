@@ -1,3 +1,5 @@
+@import "styles/config.scss";
+
 .topbar {
     @include rem(padding, 5px);
     @include rem(height, 50px);

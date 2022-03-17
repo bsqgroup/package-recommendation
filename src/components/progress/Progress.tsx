@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Props } from './Progress.interface';
 
 import s from './Progress.module.scss';

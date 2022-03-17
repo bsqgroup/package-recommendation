@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { capitalize } from 'utils/capitalize';
 import { Props } from './Button.interface';
 
